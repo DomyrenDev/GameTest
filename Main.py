@@ -39,19 +39,9 @@ class tubi_casse:
                 hai_perso()
                 
     def fra_i_tubi(self, redbird, uccellox, uccelloy):
-        tolleranza = 5
-        uccello_lato_dx = uccellox + redbird.get_width() - tolleranza
-        uccello_lato_sx = uccellox + tolleranza
+        uccello_lato_sx = uccellox
         tubi_lato_dx = self.x + pipe.get_width()
-        tubi_lato_sx = self.x
-        uccello_lato_su = uccelloy + tolleranza
-        uccello_lato_giu = uccelloy + redbird.get_height() - tolleranza
-        tubi_lato_su = self.y + 110
-        tubi_lato_giu = self.y + 210
-        if uccello_lato_dx > tubi_lato_sx and uccello_lato_sx < tubi_lato_dx:
-            if uccello_lato_su < tubi_lato_su or uccello_lato_giu > tubi_lato_giu:
-                return True
-        return False
+        return uccello_lato_sx >= tubi_lato_dx - 5 and uccello_lato_sx <= tubi_lato_dx + 5
 
 def disegna_oggetti():
     display.blit(background, (0, 0))
